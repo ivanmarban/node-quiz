@@ -1,0 +1,30 @@
+<div class="jumbotron">
+	<ul class="list-group">
+		 <% var i; for (i=0; i < quizzes.length; i++) { %>
+		 	<li class="list-group-item clearfix">
+		 		<a href="/quizzes/<%= quizzes[i].id %>"><%= quizzes[i].question %></a>
+		 		<%if(session.user) {
+		 			if (session.user.isAdmin || session.user.id === quizzes[i].UserId) {%>
+		 				<span class="pull-right button-group">
+		 					<form method="post" action="/quizzes/<%= quizzes[i].id %>?_method=delete">
+		 						<a href="/quizzes/<%= quizzes[i].id %>/edit" class="btn btn-xs btn-primary">Edit</a>
+		 						<button type="submit" onClick="return confirm('Do you want to delete?: <%= quizzes[i].question %>');" class="btn btn-xs btn-danger">Delete</button>
+		 					</form>
+		 				</span>
+		 			<%}
+		 		}%>
+		 	</li>
+		 <% } %> 
+	</ul>
+	<form method="get" action="/quizzes">
+		<label class="control-label">Search:</label>
+		<input type="text" id="search" class="form-control" name="search"/>
+		<br/>
+		<p>
+			<input class="btn btn-sm btn-primary" type="submit" value="Submit">
+		</p>
+	</form>
+	<%if(session.user){%>
+		<a class="btn btn-sm btn-success" href="/quizzes/new">Add question</a>
+	<%}%>
+</div>

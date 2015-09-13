@@ -1,0 +1,6 @@
+<div class="jumbotron">
+	<h3>Edit the question</h3>
+	<form method="post" action="/quizzes/<%= quiz.id %>?_method=put" enctype="multipart/form-data">      
+		<% include _form.ejs %>
+	</form>
+</div>
