@@ -52,7 +52,7 @@ router.get('/quizzes/:quizId(\\d+)/edit', sessionController.loginRequired, quizC
 router.put('/quizzes/:quizId(\\d+)', sessionController.loginRequired, quizController.ownershipRequired, multer({
 	dest: './public/media/'
 }), quizController.update);
-router.delete('/quizes/:quizId(\\d+)', sessionController.loginRequired, quizController.ownershipRequired, quizController.destroy);
+router.delete('/quizzes/:quizId(\\d+)', sessionController.loginRequired, quizController.ownershipRequired, quizController.destroy);
 
 
 router.get('/quizzes/:quizId(\\d+)/comments/new', commentController.new);
