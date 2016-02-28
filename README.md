@@ -10,7 +10,7 @@ Try this app at http://node-quiz-ivanmarban.herokuapp.com/
 ## Installation
 Clone this repository and install node modules
 ```sh
-$ git clone git@github.com:ivanmarban/node-quiz.git
+$ git clone https://github.com/ivanmarban/node-quiz.git
 $ cd node-quiz
 $ npm install
 ```
