@@ -1,11 +1,11 @@
 <div class="jumbotron">
-	<h3>User info</h3>
-	<form method="post" action="/user/<%= user.id %>?_method=put" >      
-		<% include _form.ejs %>
-	</form>
-	<form method="post" action="/user/<%= user.id %>?_method=delete">
-		<button class="btn btn-sm btn-primary btn-danger" type="submit" onClick="return confirm('Do you want to delete this account? <%= user.username %>');">
-			Delete account
-		</button>
-	</form>
+  <h3>User info</h3>
+  <form method="post" action="/user/<%= user.id %>?_method=put" >      
+    <% include _form.ejs %>
+  </form>
+  <form method="post" action="/user/<%= user.id %>?_method=delete">
+    <button class="btn btn-sm btn-primary btn-danger" type="submit" onClick="return confirm('Do you want to delete this account? <%= user.username %>');">
+    Delete account
+    </button>
+  </form>
 </div>

@@ -1,26 +1,26 @@
 <div class="jumbotron">
-	<%if (quiz.image){%>
-		<center><img class="img-rounded img-responsive" src="/media/<%= quiz.image %>"  width="200"></center>
-	<%}%>
-	<form method="get" action="/quizzes/<%= quiz.id %>/answer">
-		<h3><%= quiz.question %> (<%= quiz.thematic %>)</h3>
-		<input type="text" name="answer" value="" class="form-control"/>
-		<br/>
-		<p>
-			<input class="btn btn-sm btn-primary" type="submit" value="Submit">
-			<a class="btn btn-sm btn-primary" href="/quizzes/<%= quiz.id %>/comments/new" role="button">New commentary</a>
-		</p>
-	</form>
-	<h3>Comentaries:</h3>
-	<%for(index in quiz.Comments){%>
-		<%if(quiz.Comments[index].publish){%>
-			<p class="commentary">
-				<i><%=quiz.Comments[index].text%></i>
-			</p>
-		<%} else if(session.user && (session.user.isAdmin || (session.user && quiz.UserId === session.user.id))){%>
-				<p class="commentary"><%=quiz.Comments[index].text%>
-					<a class="btn btn-xs btn-success" href="/quizzes/<%= quiz.id %>/comments/<%=quiz.Comments[index].id%>/publish">Publish</a>
-				</p>
-		<%}%>
-	<%}%>
+  <%if (quiz.image){%>
+  <center><img class="img-rounded img-responsive" src="/media/<%= quiz.image %>"  width="200"></center>
+  <%}%>
+  <form method="get" action="/quizzes/<%= quiz.id %>/answer">
+    <h3><%= quiz.question %> (<%= quiz.thematic %>)</h3>
+    <input type="text" name="answer" value="" class="form-control"/>
+    <br/>
+    <p>
+      <input class="btn btn-sm btn-primary" type="submit" value="Submit">
+      <a class="btn btn-sm btn-primary" href="/quizzes/<%= quiz.id %>/comments/new" role="button">New commentary</a>
+    </p>
+  </form>
+  <h3>Comentaries:</h3>
+  <%for(index in quiz.Comments){%>
+  <%if(quiz.Comments[index].publish){%>
+  <p class="commentary">
+    <i><%=quiz.Comments[index].text%></i>
+  </p>
+  <%} else if(session.user && (session.user.isAdmin || (session.user && quiz.UserId === session.user.id))){%>
+  <p class="commentary"><%=quiz.Comments[index].text%>
+    <a class="btn btn-xs btn-success" href="/quizzes/<%= quiz.id %>/comments/<%=quiz.Comments[index].id%>/publish">Publish</a>
+  </p>
+  <%}%>
+  <%}%>
 </div>
