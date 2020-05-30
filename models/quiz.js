@@ -20,6 +20,9 @@ module.exports = function(sequelize, DataTypes) {
       image: {
         type: DataTypes.STRING
       },
+      mimetype: {
+        type: DataTypes.STRING
+      },
       thematic: {
         type: DataTypes.STRING
       }

@@ -1,5 +1,6 @@
 var models = require('../models/models.js');
 var url = require('url');
+var fs = require('fs');
 
 exports.ownershipRequired = function(req, res, next) {
   var objQuizOwner = req.quiz.UserId;
@@ -112,7 +113,8 @@ exports.create = function(req, res) {
 
   req.body.quiz.UserId = req.session.user.id;
   if (req.files.image) {
-    req.body.quiz.image = req.files.image.name;
+    req.body.quiz.mimetype = req.files.image.mimetype;
+    req.body.quiz.image = fs.readFileSync(req.files.image.path, { encoding: 'base64' });
   }
 
   var quiz = models.Quiz.build(req.body.quiz);

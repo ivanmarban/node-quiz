@@ -2,6 +2,7 @@
 <input type="text" id="question" class="form-control" name="quiz[question]" value="<%= quiz.question %>"/>
 <label class="control-label">Answer:</label>
 <input type="text" id="answer" class="form-control" name="quiz[answer]" value="<%= quiz.answer %>"/>
+<input type="hidden" id="mimetype" name="quiz[mimetype]" value="<%= quiz.mimetype %>">
 <label class="control-label">Thematic:</label>
 <select class="form-control" name="quiz[thematic]">
 	<option value="Others" <%= (quiz.thematic == 'Others' || quiz.thematic == null)?'selected':'' %>>Others</option>
