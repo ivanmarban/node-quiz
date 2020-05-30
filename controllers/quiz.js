@@ -132,7 +132,7 @@ exports.create = function(req, res) {
         } else {
           quiz
             .save({
-              fields: ['question', 'answer', 'UserId', 'thematic', 'image']
+              fields: ['question', 'answer', 'UserId', 'thematic', 'image', 'mimetype']
             })
             .then(function() {
               res.redirect('/quizzes')
@@ -179,7 +179,7 @@ exports.update = function(req, res) {
         } else {
           req.quiz
             .save({
-              fields: ['question', 'answer', 'thematic', 'image']
+              fields: ['question', 'answer', 'thematic', 'image', 'mimetype']
             })
             .then(function() {
               res.redirect('/quizzes');

@@ -1,6 +1,6 @@
 <div class="jumbotron">
   <%if (quiz.image){%>
-  <center><img class="img-rounded img-responsive" src="data: <%= quiz.mimetype%>;base64, <%= quiz.image %>"  width="200"></center>
+  <center><img class="img-rounded img-responsive" src="data: <%= quiz.mimetype %>;base64, <%= quiz.image %>"  width="200"></center>
   <%}%>
   <form method="get" action="/quizzes/<%= quiz.id %>/answer">
     <h3><%= quiz.question %> (<%= quiz.thematic %>)</h3>

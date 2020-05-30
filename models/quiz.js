@@ -18,7 +18,7 @@ module.exports = function(sequelize, DataTypes) {
         }
       },
       image: {
-        type: DataTypes.STRING
+        type: DataTypes.STRING(10485760)
       },
       mimetype: {
         type: DataTypes.STRING
